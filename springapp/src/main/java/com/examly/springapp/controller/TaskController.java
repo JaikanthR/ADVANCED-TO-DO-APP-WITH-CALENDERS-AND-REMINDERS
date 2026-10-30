@@ -10,31 +10,54 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/tasks")
+@CrossOrigin(origins = "*" )
 public class TaskController {
 
     @Autowired
     private TaskService taskService;
 
+    // Create Task
     @PostMapping("/add")
-    public ResponseEntity<Task> createTask(@RequestBody Task task) {
-        Task savedTask = taskService.addTask(task);
-        return ResponseEntity.ok(savedTask);
+    public ResponseEntity<Task> addTask(@RequestBody Task task) {
+        Task createdTask = taskService.addTask(task);
+        return ResponseEntity.ok(createdTask);
     }
 
+    // Get All Tasks
     @GetMapping("/all")
     public ResponseEntity<List<Task>> getAllTasks() {
-        return ResponseEntity.ok(taskService.getAllTasks());
+        List<Task> tasks = taskService.getAllTasks();
+        return ResponseEntity.ok(tasks);
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteTask(@PathVariable Long id) {
+    // Get Task by ID
+    @GetMapping("/{id}")
+    public ResponseEntity<Task> getTaskById(@PathVariable Long id) {
+        Task task = taskService.getTaskById(id);
+        return ResponseEntity.ok(task);
+    }
+
+    // Delete Task
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<String> deleteTask(@PathVariable Long id) {
         taskService.deleteTask(id);
-        return ResponseEntity.ok().build();
+        return ResponseEntity.ok("Task deleted successfully with id: " + id);
+    }
+    @PutMapping("/{id}/complete")
+    public ResponseEntity<Task> markCompleted(@PathVariable Long id) {
+    return ResponseEntity.ok(taskService.markCompleted(id));
     }
 
-    @PutMapping("/update")
-    public ResponseEntity<Task> updateTask(@RequestBody Task task) {
-        Task updatedTask = taskService.updateTask(task);
-        return ResponseEntity.ok(updatedTask);
+    @PutMapping("/{id}/priority")
+    public ResponseEntity<Task> setPriority(@PathVariable Long id, @RequestParam String priority) {
+    return ResponseEntity.ok(taskService.setPriority(id, priority));
     }
+
+    @GetMapping("/user/{userId}")
+    public List<Task> getTasksByUserId(@PathVariable Long userId) 
+    {
+    return taskService.getTasksByUserId(userId);
+    }
+
+
 }

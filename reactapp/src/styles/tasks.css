@@ -1,0 +1,143 @@
+.tasks-content {
+  padding: 30px 35px;
+}
+
+.task-toolbar {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 25px;
+}
+
+.task-toolbar input,
+.task-toolbar select,
+.form-card input,
+.form-card select,
+.form-card textarea,
+.reminder-form input,
+.reminder-form select {
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  padding: 12px;
+  outline: none;
+  background: white;
+}
+
+.search-input {
+  flex: 1;
+}
+
+.tasks-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+.task-card {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 13px;
+  padding: 20px;
+}
+
+.task-card-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.priority {
+  padding: 5px 10px;
+  border-radius: 15px;
+  background: #eef2ff;
+  color: #4f46e5;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.priority.high {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+.priority.medium {
+  background: #fef3c7;
+  color: #b45309;
+}
+
+.priority.low {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.task-description {
+  color: #6b7280;
+  margin: 13px 0;
+  line-height: 1.5;
+}
+
+.task-date {
+  color: #6b7280;
+  font-size: 14px;
+  margin-bottom: 18px;
+}
+
+.task-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.task-actions {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.task-actions button {
+  border: none;
+  background: #eef2ff;
+  color: #4f46e5;
+  padding: 8px 10px;
+  border-radius: 7px;
+}
+
+.task-actions select {
+  border: 1px solid #ddd;
+  padding: 6px;
+  border-radius: 6px;
+}
+
+.form-container {
+  padding: 35px;
+}
+
+.form-card {
+  max-width: 700px;
+  background: white;
+  padding: 30px;
+  border-radius: 14px;
+  margin: auto;
+}
+
+.form-card h2 {
+  margin-bottom: 8px;
+}
+
+.form-card > p {
+  color: #6b7280;
+  margin-bottom: 25px;
+}
+
+.form-card form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-card label {
+  font-weight: 600;
+  margin: 12px 0 7px;
+}
+
+.form-card button {
+  margin-top: 25px;
+}
